@@ -22,7 +22,8 @@ public class ImportedProduct extends Product {
 
     @Override
     public String priceTag() {
-        return super.priceTag() + "Taxa alfandegária: R$" + String.format("%.2f", totalPrice()) ;
+        return getName() + " R$: " + totalPrice() + " (Taxa alfandegária: R$ "
+                + String.format("%.2f", customsFee) + ")";
     }
 
     public Double totalPrice() {
