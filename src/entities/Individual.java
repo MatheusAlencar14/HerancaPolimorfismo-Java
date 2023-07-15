@@ -8,8 +8,8 @@ public class Individual extends TaxPayer{
         super();
     }
 
-    public Individual(String name, Double anualIncome, Double healthExpenditures) {
-        super(name, anualIncome);
+    public Individual(String name, Double annualIncome, Double healthExpenditures) {
+        super(name, annualIncome);
         this.healthExpenditures = healthExpenditures;
     }
 
@@ -24,14 +24,16 @@ public class Individual extends TaxPayer{
     @Override
     public double tax() {
         double tax = 0;
-        if (getAnualIncome() < 20000.00) {
-            tax = getAnualIncome() * 0.15;
+        if (getAnnualIncome() < 20000.00) {
+            tax = getAnnualIncome() * 0.15;
         } else {
-            tax = getAnualIncome() * 0.25;
+            tax = getAnnualIncome() * 0.25;
         }
+        //Expressão condicional ternária: Mesmo resultado do If acima, porém em uma linha ***
+        //double tax = (getAnnualIncome() < 20000.00) ? getAnnualIncome() * 0.15 : getAnnualIncome() * 0.25;
 
         if (getHealthExpenditures() > 0) {
-            tax = tax - (getHealthExpenditures() * 0.50);
+            tax -= getHealthExpenditures() * 0.50;
         }
         return tax;
     }

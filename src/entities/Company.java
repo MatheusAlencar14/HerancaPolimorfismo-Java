@@ -8,8 +8,8 @@ public class Company extends TaxPayer{
         super();
     }
 
-    public Company(String name, Double anualIncome, Integer numberOfEmployees) {
-        super(name, anualIncome);
+    public Company(String name, Double annualIncome, Integer numberOfEmployees) {
+        super(name, annualIncome);
         this.numberOfEmployees = numberOfEmployees;
     }
 
@@ -25,10 +25,12 @@ public class Company extends TaxPayer{
     public double tax() {
         double tax = 0;
         if (getNumberOfEmployees() > 10) {
-            tax = getAnualIncome() * 0.14;
+            tax = getAnnualIncome() * 0.14;
         } else {
-            tax = getAnualIncome() * 0.16;
+            tax = getAnnualIncome() * 0.16;
         }
+        //Expressão condicional ternária:
+        //double tax = (getNumberOfEmployees() > 10) ? getAnnualIncome() * 0.14 : getAnnualIncome() * 16;
         return tax;
     }
 }
